@@ -10,6 +10,7 @@ import Register from "./components/Register/Register";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Admin from "./components/Admin/Admin";
+import NotFound from "./components/NotFound/NotFound";
 
 export const UserContext = createContext();
 
@@ -48,9 +49,12 @@ function App() {
             <PrivateRoute exact path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <Route exact path="/admin">
+            <PrivateRoute exact path="/admin">
               <Admin />
-            </Route>
+            </PrivateRoute>
+            <Router path="*">
+              <NotFound />
+            </Router>
           </Switch>
         </Router>
       </UserContext.Provider>
