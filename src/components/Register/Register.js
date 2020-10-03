@@ -1,17 +1,31 @@
 import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Register = () => {
-  const [loggedInUser] = useContext(UserContext);
+  const [loggedInUser, , registeredTasks, setRegisteredTasks] = useContext(
+    UserContext
+  );
   const { task } = useParams();
+  const history = useHistory();
   const { register, handleSubmit, reset, errors } = useForm();
   const onSubmit = (data, e) => {
-    // e.target.reset(); // HTML standard reset() function will only reset inputs' value
     e.preventDefault();
-    console.log(data);
+    const { fullname, email, date, description, task } = data;
+    const newTask = {
+      id: registeredTasks.length + 1,
+      fullname,
+      email,
+      date,
+      description,
+      task,
+    };
+
+    setRegisteredTasks([...registeredTasks, newTask]);
+    history.push("/dashboard");
+    reset();
   };
   return (
     <div className="login mt-1">

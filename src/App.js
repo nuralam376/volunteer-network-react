@@ -8,6 +8,7 @@ import { createContext } from "react";
 import { useState } from "react";
 import Register from "./components/Register/Register";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 export const UserContext = createContext();
 
@@ -19,9 +20,18 @@ function App() {
     error: null,
   });
 
+  const [registeredTasks, setRegisteredTasks] = useState([]);
+
   return (
     <div className="App">
-      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <UserContext.Provider
+        value={[
+          loggedInUser,
+          setLoggedInUser,
+          registeredTasks,
+          setRegisteredTasks,
+        ]}
+      >
         <Router>
           <Header />
           <Switch>
@@ -33,6 +43,9 @@ function App() {
             </Route>
             <PrivateRoute exact path="/volunteerregister/:task">
               <Register />
+            </PrivateRoute>
+            <PrivateRoute exact path="/dashboard">
+              <Dashboard />
             </PrivateRoute>
           </Switch>
         </Router>
