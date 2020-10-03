@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, Container, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 import "./Header.css";
 
 const Header = () => {
+  const [loggedInUser] = useContext(UserContext);
   return (
     <div id="header" className="mb-5">
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -26,10 +28,16 @@ const Header = () => {
               <Link to="/" className="nav-link">
                 Blog
               </Link>
-              <Link to="/login" className="nav-link">
-                <Button variant="primary">Register</Button>
-              </Link>
-              <Link to="/login" className="nav-link">
+              {loggedInUser.isLoggedIn ? (
+                <Link to="/dashboard" className="nav-link">
+                  <Button variant="primary">Dashboard</Button>
+                </Link>
+              ) : (
+                <Link to="/login" className="nav-link">
+                  <Button variant="primary">Register</Button>
+                </Link>
+              )}
+              <Link to="/admin" className="nav-link">
                 <Button variant="secondary">Admin</Button>
               </Link>
             </Nav>

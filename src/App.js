@@ -9,6 +9,7 @@ import { useState } from "react";
 import Register from "./components/Register/Register";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Admin from "./components/Admin/Admin";
 
 export const UserContext = createContext();
 
@@ -47,6 +48,9 @@ function App() {
             <PrivateRoute exact path="/dashboard">
               <Dashboard />
             </PrivateRoute>
+            <Route exact path="/admin">
+              <Admin />
+            </Route>
           </Switch>
         </Router>
       </UserContext.Provider>
