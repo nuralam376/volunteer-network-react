@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import Tasks from "../Tasks/Tasks";
+import "./Home.css";
 
 const Home = () => {
   return (
