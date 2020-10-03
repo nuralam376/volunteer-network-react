@@ -1,0 +1,26 @@
+.task {
+  overflow: hidden;
+}
+.task-img {
+  position: relative;
+}
+
+.task-name {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  color: white;
+  width: 90%;
+  margin: auto;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.task:nth-child(even) .task-name {
+  background-color: cyan;
+}
+
+.task:nth-child(odd) .task-name {
+  background-color: coral;
+}
