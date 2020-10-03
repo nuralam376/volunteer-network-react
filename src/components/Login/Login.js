@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import { Button, Image } from "react-bootstrap";
+import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../App";
 import { firebaseGoogleLogin, firebaseGoogleLogout } from "./firebaseLogin";
 import "./Login.css";
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+
+  const { from } = location.state || { from: { pathname: "/" } };
 
   const googleLogin = () => {
     let userInfo = { ...loggedInUser };
@@ -16,6 +21,8 @@ const Login = () => {
           userInfo.name = result.displayName;
           userInfo.email = result.email;
           userInfo.error = null;
+          setLoggedInUser(userInfo);
+          history.replace(from);
         } else {
           userInfo.error = result;
         }

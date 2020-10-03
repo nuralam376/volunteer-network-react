@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import { createContext } from "react";
 import { useState } from "react";
 import Register from "./components/Register/Register";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 export const UserContext = createContext();
 
@@ -30,9 +31,9 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path="/volunteerregister/:task">
+            <PrivateRoute exact path="/volunteerregister/:task">
               <Register />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Router>
       </UserContext.Provider>
