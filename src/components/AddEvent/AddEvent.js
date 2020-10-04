@@ -1,11 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 
 const AddEvent = () => {
   const { register, handleSubmit, errors, reset } = useForm();
-  const history = useHistory();
   const onSubmit = (data) => {
     const { title: name, description, date } = data;
 

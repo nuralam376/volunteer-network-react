@@ -1,12 +1,9 @@
 import React from "react";
 import { Button, Col, Image, Row } from "react-bootstrap";
 
-const RegisteredEvent = ({ event, date }) => {
-  const { _id, name, image } = event;
-
-  const deleteEvent = (id) => {
-    console.log(id);
-  };
+const RegisteredEvent = ({ eventInfo, deleteEvent }) => {
+  const { _id, date, event } = eventInfo;
+  const { name, image } = event;
 
   return (
     <Col md={6} className="mb-5">

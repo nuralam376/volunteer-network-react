@@ -24,6 +24,27 @@ const Dashboard = () => {
       .catch((err) => alert("No Data found"));
   }, [loggedInUser.email]);
 
+  const deleteEvent = (id) => {
+    fetch("http://localhost:5000/volunteer/event/delete", {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          alert("Event deleted successfully");
+          const remainningEvents = events.filter((event) => event._id !== id);
+          setEvents(remainningEvents);
+        } else {
+          alert("Event deletion failed");
+        }
+      })
+      .catch(() => alert("Something went wrong"));
+  };
+
   return (
     <Container>
       <Row>
@@ -31,8 +52,8 @@ const Dashboard = () => {
           events.map((eventInfo) => (
             <RegisteredEvent
               key={eventInfo._id}
-              date={eventInfo.date}
-              event={eventInfo.event}
+              eventInfo={eventInfo}
+              deleteEvent={deleteEvent}
             />
           ))
         ) : (
