@@ -40,9 +40,9 @@ function App() {
             <PrivateRoute exact path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute exact path="/admin">
+            <Route exact path="/admin">
               <Admin />
-            </PrivateRoute>
+            </Route>
             <Router path="*">
               <NotFound />
             </Router>

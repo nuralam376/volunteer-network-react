@@ -27,12 +27,12 @@ const Admin = () => {
                     Add Event
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/admin/addevents">
                     <Image src="/resources/logos/plus1.png" />
-                    Add Events
+                    Import Events
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </Col>
             <Col md={9}>

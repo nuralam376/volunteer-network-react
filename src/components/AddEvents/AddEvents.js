@@ -120,7 +120,7 @@ const AddEvents = () => {
   return (
     <div>
       <Button onClick={addEvents} variant="info">
-        Add All Events
+        Import All Events
       </Button>
     </div>
   );

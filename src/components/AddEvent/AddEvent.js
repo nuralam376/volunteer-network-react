@@ -1,10 +1,38 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const AddEvent = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, errors, reset } = useForm();
+  const history = useHistory();
+  const onSubmit = (data) => {
+    const { title: name, description, date } = data;
+
+    const newEvent = {
+      name,
+      description,
+      date,
+    };
+
+    fetch("http://localhost:5000/events/add", {
+      method: "POST",
+      body: JSON.stringify(newEvent),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          alert("Event created successfully");
+          reset();
+        } else {
+          alert("Event not created");
+        }
+      })
+      .catch(() => alert("Somwthing went wrong"));
+  };
 
   return (
     <Container>
@@ -18,7 +46,10 @@ const AddEvent = () => {
           className="form-control mb-4"
           placeholder="Event Title"
         />
-
+        {errors.title && (
+          <span className="text-danger">* This field is required</span>
+        )}
+        <br />
         {/* include validation with required or other standard HTML validation rules */}
         <input
           name="description"
@@ -27,8 +58,10 @@ const AddEvent = () => {
           placeholder="Event Description"
         />
         {/* errors will return when field validation fails  */}
-        {errors.description && <span>This field is required</span>}
-
+        {errors.description && (
+          <span className="text-danger">* This field is required</span>
+        )}
+        <br />
         <input
           name="date"
           type="date"
@@ -37,8 +70,10 @@ const AddEvent = () => {
           placeholder="Date"
         />
         {/* errors will return when field validation fails  */}
-        {errors.date && <span>This field is required</span>}
-
+        {errors.date && (
+          <span className="text-danger">* This field is required</span>
+        )}
+        <br />
         <input type="submit" className="btn btn-primary" />
       </form>
     </Container>
