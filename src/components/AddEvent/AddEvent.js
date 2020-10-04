@@ -13,7 +13,7 @@ const AddEvent = () => {
       date,
     };
 
-    fetch("http://localhost:5000/events/add", {
+    fetch("https://volunteer-network1.herokuapp.com/events/add", {
       method: "POST",
       body: JSON.stringify(newEvent),
       headers: {

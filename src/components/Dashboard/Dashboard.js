@@ -12,20 +12,23 @@ const Dashboard = () => {
   const [loggedInUser] = useContext(UserContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/volunteer/registeredevents", {
-      method: "POST",
-      body: JSON.stringify({ email: loggedInUser.email }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
+    fetch(
+      "https://volunteer-network1.herokuapp.com/volunteer/registeredevents",
+      {
+        method: "POST",
+        body: JSON.stringify({ email: loggedInUser.email }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((allEvents) => setEvents(allEvents))
       .catch((err) => alert("No Data found"));
   }, [loggedInUser.email]);
 
   const deleteEvent = (id) => {
-    fetch("http://localhost:5000/volunteer/event/delete", {
+    fetch("https://volunteer-network1.herokuapp.com/volunteer/event/delete", {
       method: "DELETE",
       body: JSON.stringify({ id }),
       headers: {

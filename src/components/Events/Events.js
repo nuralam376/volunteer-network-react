@@ -6,7 +6,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allevents")
+    fetch("https://volunteer-network1.herokuapp.com/allevents")
       .then((res) => res.json())
       .then((allEvents) => setEvents(allEvents))
       .catch((err) => alert("No Data found"));
