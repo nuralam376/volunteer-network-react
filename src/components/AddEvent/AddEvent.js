@@ -3,10 +3,8 @@ import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const AddEvent = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
-
-  console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <Container>

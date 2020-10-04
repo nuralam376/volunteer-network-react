@@ -3,8 +3,8 @@ import { Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./EventDetails.css";
 
-const EventDetails = ({ task }) => {
-  const { name, image } = task;
+const EventDetails = ({ event }) => {
+  const { name, image } = event;
   return (
     <Col md={3} className="mt-5 task">
       <Link to={`/volunteerregister/${name}`}>

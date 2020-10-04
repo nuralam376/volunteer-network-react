@@ -3,6 +3,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import Switch from "react-bootstrap/esm/Switch";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import AddEvent from "../AddEvent/AddEvent";
+import AddEvents from "../AddEvents/AddEvents";
 import VolunteerLists from "../VolunteerLists/VolunteerLists";
 import "./Admin.css";
 
@@ -26,6 +27,12 @@ const Admin = () => {
                     Add Event
                   </Link>
                 </li>
+                <li>
+                  <Link to="/admin/addevents">
+                    <Image src="/resources/logos/plus1.png" />
+                    Add Events
+                  </Link>
+                </li>
               </ul>
             </Col>
             <Col md={9}>
@@ -38,6 +45,9 @@ const Admin = () => {
                 </Route>
                 <Route exaxct path="/admin/addevent">
                   <AddEvent />
+                </Route>
+                <Route exaxct path="/admin/addevents">
+                  <AddEvents />
                 </Route>
               </Switch>
             </Col>
