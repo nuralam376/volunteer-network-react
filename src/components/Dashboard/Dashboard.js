@@ -22,7 +22,7 @@ const Dashboard = () => {
       .then((res) => res.json())
       .then((allEvents) => setEvents(allEvents))
       .catch((err) => alert("No Data found"));
-  }, []);
+  }, [loggedInUser.email]);
 
   return (
     <Container>

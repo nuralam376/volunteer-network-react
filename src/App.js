@@ -22,18 +22,9 @@ function App() {
     error: null,
   });
 
-  const [registeredTasks, setRegisteredTasks] = useState([]);
-
   return (
     <div className="App">
-      <UserContext.Provider
-        value={[
-          loggedInUser,
-          setLoggedInUser,
-          registeredTasks,
-          setRegisteredTasks,
-        ]}
-      >
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
           <Header />
           <Switch>

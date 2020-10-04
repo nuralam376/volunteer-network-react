@@ -6,9 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Register = () => {
-  const [loggedInUser, , registeredTasks, setRegisteredTasks] = useContext(
-    UserContext
-  );
+  const [loggedInUser] = useContext(UserContext);
   const { eventId } = useParams();
   const [event, setEvent] = useState({});
   const history = useHistory();
@@ -31,8 +29,6 @@ const Register = () => {
       description,
       event,
     };
-
-    setRegisteredTasks([...registeredTasks, newEvent]);
 
     fetch("http://localhost:5000/volunteer/registration", {
       method: "POST",
