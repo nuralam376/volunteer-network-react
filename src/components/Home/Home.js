@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import Tasks from "../Tasks/Tasks";
+import Events from "../Events/Events";
 import "./Home.css";
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
         <input type="text" placeholder="Search" className="form-control" />
         <Button>Search</Button>
       </div>
-      <Tasks />
+      <Events />
     </div>
   );
 };

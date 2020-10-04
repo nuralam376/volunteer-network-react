@@ -1,9 +1,9 @@
 import React from "react";
 import { Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./TaskDetails.css";
+import "./EventDetails.css";
 
-const TaskDetails = ({ task }) => {
+const EventDetails = ({ task }) => {
   const { name, image } = task;
   return (
     <Col md={3} className="mt-5 task">
@@ -15,4 +15,4 @@ const TaskDetails = ({ task }) => {
   );
 };
 
-export default TaskDetails;
+export default EventDetails;

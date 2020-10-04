@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-const Event = () => {
+const AddEvent = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
@@ -47,4 +47,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default AddEvent;

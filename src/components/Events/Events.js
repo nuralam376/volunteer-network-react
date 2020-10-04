@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import TaskDetails from "../TaskDetails/TaskDetails";
+import EventDetails from "../EventDetails/EventDetails";
 
-const Tasks = () => {
+const Events = () => {
   const [tasks, setTasks] = useState([]);
 
   const allTasks = [
@@ -116,11 +116,11 @@ const Tasks = () => {
     <Container className="mt-5">
       <Row>
         {tasks.map((task) => (
-          <TaskDetails key={task.id} task={task} />
+          <EventDetails key={task.id} task={task} />
         ))}
       </Row>
     </Container>
   );
 };
 
-export default Tasks;
+export default Events;
