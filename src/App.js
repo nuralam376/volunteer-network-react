@@ -43,7 +43,7 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
-            <PrivateRoute exact path="/volunteerregister/:task">
+            <PrivateRoute exact path="/volunteerregister/:eventId">
               <Register />
             </PrivateRoute>
             <PrivateRoute exact path="/dashboard">
