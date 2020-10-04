@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
-import RegisteredTask from "../RegisteredTask/RegisteredTask";
+import RegisteredEvent from "../RegisteredEvent/RegisteredEvent";
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
@@ -28,7 +28,13 @@ const Dashboard = () => {
     <Container>
       <Row>
         {events.length ? (
-          events.map((task) => <RegisteredTask key={task.id} task={task} />)
+          events.map((eventInfo) => (
+            <RegisteredEvent
+              key={eventInfo._id}
+              date={eventInfo.date}
+              event={eventInfo.event}
+            />
+          ))
         ) : (
           <h4>
             Volunteer Task list empty. <Link to="/">Register Now</Link>
