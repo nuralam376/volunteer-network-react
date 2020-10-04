@@ -29,17 +29,22 @@ const Header = () => {
                 Blog
               </Link>
               {loggedInUser.isLoggedIn ? (
-                <Link to="/dashboard" className="nav-link">
-                  <Button variant="primary">Dashboard</Button>
-                </Link>
+                <>
+                  <Link to="/dashboard" className="nav-link">
+                    <Button variant="primary">Dashboard</Button>
+                  </Link>
+                  <Link to="/admin" className="nav-link">
+                    <Button variant="secondary">Admin</Button>
+                  </Link>
+                  <Link to="/login" className="nav-link">
+                    <Button variant="danger">Logout</Button>
+                  </Link>
+                </>
               ) : (
                 <Link to="/login" className="nav-link">
-                  <Button variant="primary">Register</Button>
+                  <Button variant="primary">Login</Button>
                 </Link>
               )}
-              <Link to="/admin" className="nav-link">
-                <Button variant="secondary">Admin</Button>
-              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

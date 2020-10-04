@@ -46,9 +46,9 @@ const Login = () => {
         userInfo.error = result;
       }
       setLoggedInUser(userInfo);
-      console.log(userInfo);
     });
   };
+
   return (
     <div className="mt-5 login">
       {loggedInUser.error && (
