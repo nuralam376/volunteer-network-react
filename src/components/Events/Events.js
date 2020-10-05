@@ -9,7 +9,10 @@ const Events = () => {
     fetch("https://volunteer-network1.herokuapp.com/allevents")
       .then((res) => res.json())
       .then((allEvents) => setEvents(allEvents))
-      .catch((err) => alert("No Data found"));
+      .catch(() => {
+        alert("No Data found");
+        window.location.reload(); // Reload the page for restarting heroku app from idle/sleep mode
+      });
   }, []);
 
   return (
