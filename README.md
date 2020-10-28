@@ -2,10 +2,10 @@
 
 ### Live Website - https://volunteer-network-22fcf.web.app/
 
-1. Diffrenet volunteer events showcase on the homepage.
+1. Different volunteer events showcase on the homepage.
 2. Volunteers can select the event where he/she wants to participate.
-3. To register for the voluneer event, Volunteers need to login on the system using the google account. (Authentication by firebase account).
-4. Volunteers can see the lists of the volunter events he/she registered.
+3. To register for the volunteer event, Volunteers need to log into the system using the google account. (Authentication by firebase account).
+4. Volunteers can see the lists of the volunteer events he/she registered.
 5. Volunteer can cancel the registered event.
 6. Admin can see all the volunteers registered events.
 7. Admin can delete the registered volunteer event.
