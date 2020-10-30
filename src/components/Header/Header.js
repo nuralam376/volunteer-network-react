@@ -19,7 +19,7 @@ const Header = () => {
               <Link to="/" className="nav-link">
                 Home
               </Link>
-              <Link to="/" className="nav-link">
+              {/* <Link to="/" className="nav-link">
                 Donation
               </Link>
               <Link to="/" className="nav-link">
@@ -27,7 +27,7 @@ const Header = () => {
               </Link>
               <Link to="/" className="nav-link">
                 Blog
-              </Link>
+              </Link> */}
               {loggedInUser.isLoggedIn ? (
                 <>
                   <Link to="/dashboard" className="nav-link">
